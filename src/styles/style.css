@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  background: #1f1e1e;
+}
+
+.games-cards-container {
+  width: 85vw;
+  display: inline-block;
+  float: right;
+  text-align: center;
+}
+
+.game-card-container {
+  display: inline-block;
+  width: 370px;
+  margin: 10px 10px;
+}
+
+.game-card-container .image-loading-template {
+  display: inline-block;
+  padding: 100px;
+  background: #2e2e2e;
+}
+
+.game-card-container .game-pic {
+  width: 370px;
+  height: 200px;
+  margin-bottom: 0;
+  border-radius: 15px 15px 0 0;
+}
+
+.game-card-container .text-container {
+  text-align: initial;
+  background: #2e2e2e;
+  color: white;
+  margin-top: -4px;
+  padding: 13px 0;
+  border-radius: 0 0 15px 15px;
+}
+
+.game-card-container .text-container p {
+  margin-left: 15px;
+}
+/*# sourceMappingURL=style.css.map */

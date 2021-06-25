@@ -1,6 +1,14 @@
 body {
   margin: 0;
   background: #1f1e1e;
+  font-family: 'Lato', sans-serif;
+}
+
+.logo-container .logo-name {
+  color: white;
+  font-size: 28px;
+  margin-left: 25px;
+  margin-top: 30px;
 }
 
 .games-cards-container {
@@ -30,6 +38,7 @@ body {
 }
 
 .game-card-container .text-container {
+  position: relative;
   text-align: initial;
   background: #2e2e2e;
   color: white;
@@ -38,7 +47,31 @@ body {
   border-radius: 0 0 15px 15px;
 }
 
-.game-card-container .text-container p {
+.game-card-container .text-container .game-name {
   margin-left: 15px;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.game-card-container .text-container .game-metacritic-container {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+}
+
+.game-card-container .text-container .game-metacritic-container .game-metacritic {
+  font-size: 14px;
+  padding: 1px 5px;
+  border-radius: 5px;
+}
+
+.game-card-container .text-container .game-platform-container {
+  margin-left: 10px;
+  margin-bottom: 0;
+}
+
+.game-card-container .text-container .game-platform-container img {
+  width: 20px;
+  margin-left: 5px;
 }
 /*# sourceMappingURL=style.css.map */

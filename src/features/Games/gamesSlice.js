@@ -1,4 +1,5 @@
-import { createSlice, createAsyncThunk, getDefaultMiddleware } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, getDefaultMiddleware, current } from "@reduxjs/toolkit";
+import produce from "immer";
 
 const initialState = {
     gameData: [],
@@ -28,15 +29,18 @@ const gamesSlice = createSlice({
             state.status = 'loading'
         },
         [getGames.fulfilled]: (state, { payload }) => {
-            if(state.page !== 1) {
-                console.log(payload.results)
-                state.gameData.results = state.gameData.results.push(payload.results)
-                console.log(state.gameData.results)
-                state.status = 'success'
-            } else {
-                state.gameData = payload
-                state.status = 'success'
-            }
+            // if(state.page !== 1) {
+            //     const nextState = produce(state.gameData.results, draftState => {
+            //         draftState.push(...payload.results)
+            //     })
+            //     state.gameData.results = nextState
+            //     state.status = 'success'
+            // } else {
+            //     state.gameData = payload
+            //     state.status = 'success'
+            // }
+            state.gameData = payload
+            state.status = 'success'
         },
         [getGames.rejected]: (state, action) => {
             state.status = 'failed'

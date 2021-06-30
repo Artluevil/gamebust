@@ -4,6 +4,19 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+.page-switch-container {
+    display: inline-block;
+
+    & p {
+        display: inline-block;
+        margin: 40px 10px;
+        color: rgb(192, 192, 192);
+        background: rgb(8, 8, 8);
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+}
+
 .logo-container {
     & .logo-name {
         color: white;
@@ -21,6 +34,7 @@ body {
 }
 
 .game-card-container {
+    position: relative;
     display: inline-block;
     width: 370px;
     margin: 10px 10px;
@@ -51,6 +65,7 @@ body {
             margin-left: 15px;
             font-size: 16px;
             margin-top: 5px;
+            width: 70%;
         }
 
         & .game-metacritic-container {
@@ -69,11 +84,98 @@ body {
             margin-left: 10px;
             margin-bottom: 0;
 
+            & .platform-img-container {
+                display: inline-block;
+            }
+
             & img {
                 width: 20px;
                 margin-left: 5px;
             }
         }
 
+    }
+    & .hover-container {
+        position: absolute;
+        z-index: 99;
+        background: transparent;
+        padding-top: 235px;
+        width: 370px;
+        top: 0;
+        transition: .5s;
+
+        & .hover-info {
+            opacity: 0;
+            z-index: 99;
+        }
+
+        &:hover {
+            padding-top: 235px;
+            & .hover-info {
+                background: rgb(46, 46, 46);
+                opacity: 99;
+                margin-top: 40px;
+                transition: .3s;
+                text-align: initial;
+                padding-bottom: 10px;
+                border-radius: 0px 0px 15px 15px;
+                z-index: 99!important;
+
+                & .esrb-container {
+                    display: inline-block;
+                    color:rgb(240, 240, 240);
+                    margin-top: -15px;
+                    & p {
+                        display: inline-block;
+                    } 
+                    & .esrb-text {
+                        margin-left: 15px;
+                    }
+                    & .esrb-rating {
+                        width: 250px;
+                        text-align: right;
+                    } 
+                }
+
+                & .released-container {
+                    display: inline-block;
+                    color:rgb(240, 240, 240);
+                    margin-bottom: 0px; 
+
+                    & .released-text {
+                        display: inline-block;
+                        margin-left: 15px;
+                    }
+
+                    & .released-date {
+                        display: inline-block;
+                        text-align: right;
+                        width: 235px;
+                    }
+                }
+
+                & .genres-container {
+                    display: inline-block;
+                    color:rgb(240, 240, 240);
+                    margin-bottom: 0px;
+
+                    & .genre-text {
+                        display: inline-block;
+                        margin-left: 15px;
+                    }
+
+                    & .genre-name-container {
+                        display: inline-block;
+                        width: 285px;
+                        text-align: right;
+
+                        & p {
+                            display: inline-block;
+                            margin: 0 2px;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

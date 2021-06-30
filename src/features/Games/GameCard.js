@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { selectDataGames, selectDataStatus, setPage } from './gamesSlice'
+import { selectDataGames, selectDataStatus, setPage, selectPage } from './gamesSlice'
 import PCicon from '../../images/windows.png'
 import PlayStationIcon from '../../images/playstation.png'
 import IoS from '../../images/ios.png'
@@ -8,6 +8,8 @@ import Linux from '../../images/linux.png'
 import XBOX from '../../images/xbox.png'
 import Nintendo from '../../images/nintendo.png'
 import Android from '../../images/android.png'
+import { nanoid } from 'nanoid'
+import Card from './Card'
 
 export default function GameCard() {
 
@@ -15,8 +17,10 @@ export default function GameCard() {
 
     const gamesData = useSelector(selectDataGames)
     const dataStatus = useSelector(selectDataStatus)
+    const currentPage = useSelector(selectPage)
 
     const [imageLoaded, setImageLoaded] = useState(false)
+    const [infoVisible, setInfoVisible] = useState([false])
 
     function getMetaColor(metascore) {
         if(metascore > 80) {
@@ -48,29 +52,39 @@ export default function GameCard() {
         }
     }
 
+    function handleInfoHover() {
+        setInfoVisible(!infoVisible)
+    }
+
+
     function handleLoadData() {
         if(dataStatus === 'loading') {
-            return <p>Loading</p>
-        } else if(dataStatus === 'success') {
+            return <p>Loading...</p>
+        }else if(dataStatus === 'success') {
             return gamesData.results.map(game => (
-                <div className="game-card-container" key={game.id}>
-                    <img onLoad={() => setImageLoaded(true)} className="game-pic" src={game.background_image} style={imageLoaded ? {} : {display: 'none'}}/>
-                    {imageLoaded ? 
-                    <div className="text-container">
-                        {/* <div className="game-platform-container">
-                            {game.parent_platforms.map(platformData => (
-                                getIcon(platformData.platform.name)
-                            ))}
-                        </div> */}
-                        <p className="game-name">{game.name}</p>
-                        <div className="game-metacritic-container">
-                            <p style={getMetaColor(game.metacritic)} className="game-metacritic">{game.metacritic}</p>
-                        </div>
-                    </div> : null}
-                </div>
+                <Card game={game} getMetaColor={getMetaColor} getIcon={getIcon} setImageLoaded={setImageLoaded} handleInfoHover={handleInfoHover} imageLoaded={imageLoaded}/>
             ))
         } else if(dataStatus === 'failed') {
             return <p>Data loading failed</p>
+        }
+    }
+
+    function handleLoadSwitchButtons() {
+        if(dataStatus === 'success') {
+            return <div className="page-switch-container">
+                        <p onClick={() => handlePreviousPage()}>Previous Page</p>
+                        <p onClick={() => handleNextPage()}>Next Page</p>
+                    </div>
+        }
+    }
+
+    function handleNextPage() {
+        dispatch(setPage(currentPage + 1))
+    }
+    
+    function handlePreviousPage() {
+        if(currentPage !== 1) {
+            dispatch(setPage(currentPage - 1))
         }
     }
 
@@ -78,8 +92,7 @@ export default function GameCard() {
         <div>
             <div>
                 {handleLoadData()}
-                <p onClick={() => dispatch(setPage(1))}>Page1</p>
-                <p onClick={() => dispatch(setPage(2))}>Page2</p>
+                {handleLoadSwitchButtons()}
             </div>
         </div>
     )

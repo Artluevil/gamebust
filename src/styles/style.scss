@@ -17,6 +17,31 @@ body {
     }
 }
 
+.left-panel-container {
+    position: fixed;
+    top: 20vh;
+    left: 25px;
+    color: white;
+    width: 12vw;
+}
+
+.search-engine-container {
+    position: absolute;
+    left: 320px;
+    top: 30px;
+
+    & input {
+        width: 60vw;
+        height: 40px;
+        padding-left: 15px;
+        border-radius: 20px;
+        border: none;
+        background: rgb(59, 59, 59);
+        color:rgb(204, 204, 204);
+
+    }
+}
+
 .logo-container {
     & .logo-name {
         color: white;
@@ -26,11 +51,111 @@ body {
     }
 }
 
+.game-overview-container {
+    background: gold;
+
+    .image-container {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        text-align: center;
+
+        & .image-wrapper {
+            position: relative;
+            display: inline-block;
+            z-index: 1;
+            object-fit: fill;
+            
+            & img {
+                display: block;
+                opacity: .2;
+                width: 100vw;
+            }
+    
+            & .image-overlay {
+                position: absolute;
+                top: 0;
+                right: 0;
+                left: 0;
+                bottom: 0;
+                background: rgb(31,30,30);
+                background: linear-gradient(0deg, rgba(31,30,30,1) 0%, rgba(31,30,30,1) 53%, rgba(31,30,30,0.96) 59%, rgba(31,30,30,0) 100%);
+            }
+        }
+    }
+
+    & .game-overview-content {
+        width: 75vw;
+        float: right;
+
+        & .game-overview-text {
+            color: rgb(197, 197, 197);
+            margin-bottom: 0;
+            font-size: 20px;
+        }
+
+        & .game-name {
+            color: white;
+            font-size: 64px;
+            margin-top: 0px
+        }
+
+        & .released-and-platform {
+            display: inline-block;
+
+            & .release-text {
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 15px;
+                background: white;
+                padding: 2px 8px;
+                border-radius: 4px;
+            }
+
+            & .average-text {
+                display: inline-block;
+                vertical-align: middle;
+                color: white;
+                margin-left: 15px;
+            }
+
+            & .platform-container {
+                display: inline-block;
+    
+                & div {
+                    display: inline-block;
+    
+                    & img {
+                        width: 18px;
+                        margin: 0 5px;
+                        vertical-align: middle;
+                    }
+                }
+            }
+        }
+    }
+}
+
 .games-cards-container {
     width: 85vw;
     display: inline-block;
     float: right;
     text-align: center;
+    margin-top: 30px;
+}
+
+.card-wrapper {
+
+    transition: .3s;
+
+    &:hover {
+        transform: scale(105%);
+        z-index: 99;
+    }
 }
 
 .game-card-container {
@@ -38,6 +163,7 @@ body {
     display: inline-block;
     width: 370px;
     margin: 10px 10px;
+    z-index: 1;
 
     & .image-loading-template {
         display: inline-block;
@@ -63,9 +189,15 @@ body {
 
         & .game-name {
             margin-left: 15px;
-            font-size: 16px;
+            font-size: 18px;
             margin-top: 5px;
             width: 70%;
+            cursor: pointer;
+            transition: .3s;
+
+            &:hover {
+                color:rgb(158, 158, 158)
+            }
         }
 
         & .game-metacritic-container {
@@ -83,99 +215,135 @@ body {
         & .game-platform-container {
             margin-left: 10px;
             margin-bottom: 0;
+            z-index: 0;
 
             & .platform-img-container {
                 display: inline-block;
+                z-index: 0;
             }
 
             & img {
-                width: 20px;
+                width: 16px;
                 margin-left: 5px;
             }
         }
 
     }
-    & .hover-container {
-        position: absolute;
-        z-index: 99;
-        background: transparent;
-        padding-top: 235px;
-        width: 370px;
-        top: 0;
-        transition: .5s;
+}
 
-        & .hover-info {
-            opacity: 0;
-            z-index: 99;
+.hover-container {
+    position: absolute;
+    background: transparent;
+    margin-top: 160px;
+    width: 370px;
+    top: 40%;
+    margin-left: 10px;
+    transition: .5s;
+    z-index: 99;
+
+    & .hover-info-invis {
+        display: none;
+    }
+
+    & .hover-info-vis {
+        background: rgb(46, 46, 46);
+        margin-top: 0px;
+        transition: .3s;
+        padding-bottom: 10px;
+        text-align: initial;
+        border-radius: 0px 0px 15px 15px;
+        z-index: 99!important;
+        padding-left: 4px;
+
+        & .esrb-container {
+            display: inline-block;
+            color:rgb(133, 133, 133);
+            margin-top: -15px;
+            & p {
+                display: inline-block;
+                font-size: 14px;
+            } 
+            & .esrb-text {
+                margin-left: 15px;
+            }
+            & .esrb-rating {
+                width: 255px;
+                text-align: right;
+            } 
         }
 
-        &:hover {
-            padding-top: 235px;
-            & .hover-info {
-                background: rgb(46, 46, 46);
-                opacity: 99;
-                margin-top: 40px;
-                transition: .3s;
-                text-align: initial;
-                padding-bottom: 10px;
-                border-radius: 0px 0px 15px 15px;
-                z-index: 99!important;
+        & .released-container {
+            display: inline-block;
+            color:rgb(133, 133, 133);
+            margin-bottom: 0px; 
+            border-bottom: 1px solid gray;
+            margin-left: 15px;
 
-                & .esrb-container {
+            & .released-text {
+                display: inline-block;
+                font-size: 14px;
+            }
+
+            & .released-date {
+                display: inline-block;
+                text-align: right;
+                width: 243px;
+                font-size: 14px;
+            }
+        }
+
+        & .genres-container {
+            display: inline-block;
+            color:rgb(133, 133, 133);
+            margin-bottom: 0px;
+            border-bottom: 1px solid gray;
+            margin-left: 15px;
+
+            & .genre-text {
+                display: inline-block;
+                font-size: 14px;
+            }
+
+            & .genre-name-container {
+                display: inline-block;
+                width: 285px;
+                text-align: right;
+
+                & p {
                     display: inline-block;
-                    color:rgb(240, 240, 240);
-                    margin-top: -15px;
-                    & p {
-                        display: inline-block;
-                    } 
-                    & .esrb-text {
-                        margin-left: 15px;
-                    }
-                    & .esrb-rating {
-                        width: 250px;
-                        text-align: right;
-                    } 
+                    margin: 0 2px;
+                    font-size: 14px;
+                }
+            }
+        }
+        & .show-more-container {
+            text-align: center;
+            align-items: center;
+            color:rgb(230, 230, 230);
+            margin-top: 0;
+            padding-top: -5px;
+            padding-bottom: 10px;
+
+            & .text-wrapper {
+                display: inline-block;
+                width: 90%;
+                background: rgb(63, 63, 63);
+                border-radius: 7px;
+                cursor: pointer;
+                transition: .5s;
+
+                &:hover {
+                    color: rgb(0, 255, 179);
+                    outline: 2px solid rgb(36, 36, 36);
                 }
 
-                & .released-container {
-                    display: inline-block;
-                    color:rgb(240, 240, 240);
-                    margin-bottom: 0px; 
-
-                    & .released-text {
-                        display: inline-block;
-                        margin-left: 15px;
-                    }
-
-                    & .released-date {
-                        display: inline-block;
-                        text-align: right;
-                        width: 235px;
-                    }
-                }
-
-                & .genres-container {
-                    display: inline-block;
-                    color:rgb(240, 240, 240);
-                    margin-bottom: 0px;
-
-                    & .genre-text {
-                        display: inline-block;
-                        margin-left: 15px;
-                    }
-
-                    & .genre-name-container {
-                        display: inline-block;
-                        width: 285px;
-                        text-align: right;
-
-                        & p {
-                            display: inline-block;
-                            margin: 0 2px;
-                        }
-                    }
+                & .text {
+                    font-size: 14px;
+                    margin-top: 8px;
+                    margin-bottom: 8px;
                 }
             }
         }
     }
+
 }

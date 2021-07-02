@@ -1,14 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectDataGames, selectDataStatus, setPage, selectPage } from './gamesSlice'
-import PCicon from '../../images/windows.png'
-import PlayStationIcon from '../../images/playstation.png'
-import IoS from '../../images/ios.png'
-import Linux from '../../images/linux.png'
-import XBOX from '../../images/xbox.png'
-import Nintendo from '../../images/nintendo.png'
-import Android from '../../images/android.png'
-import { nanoid } from 'nanoid'
 import Card from './Card'
 
 export default function GameCard() {
@@ -20,7 +12,6 @@ export default function GameCard() {
     const currentPage = useSelector(selectPage)
 
     const [imageLoaded, setImageLoaded] = useState(false)
-    const [infoVisible, setInfoVisible] = useState([false])
 
     function getMetaColor(metascore) {
         if(metascore > 80) {
@@ -34,35 +25,12 @@ export default function GameCard() {
         }
     }
 
-    function getIcon(platform) {
-        if(platform === 'PC') {
-            return <img src={PCicon}/>
-        } else if(platform === 'PlayStation') {
-            return <img src={PlayStationIcon}/>
-        } else if(platform === 'PlayStation') {
-            return <img src={PlayStationIcon}/>
-        } else if(platform === 'iOS') {
-            return <img src={IoS}/>
-        } else if(platform === 'Xbox') {
-            return <img src={XBOX}/>
-        } else if(platform === 'Nintendo') {
-            return <img src={Nintendo}/>
-        }else if(platform === 'Linux') {
-            return <img src={Linux}/>
-        }
-    }
-
-    function handleInfoHover() {
-        setInfoVisible(!infoVisible)
-    }
-
-
     function handleLoadData() {
         if(dataStatus === 'loading') {
             return <p>Loading...</p>
         }else if(dataStatus === 'success') {
             return gamesData.results.map(game => (
-                <Card game={game} getMetaColor={getMetaColor} getIcon={getIcon} setImageLoaded={setImageLoaded} handleInfoHover={handleInfoHover} imageLoaded={imageLoaded}/>
+                <Card game={game} getMetaColor={getMetaColor} setImageLoaded={setImageLoaded} imageLoaded={imageLoaded}/>
             ))
         } else if(dataStatus === 'failed') {
             return <p>Data loading failed</p>

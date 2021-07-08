@@ -36,9 +36,19 @@ body {
         padding-left: 15px;
         border-radius: 20px;
         border: none;
-        background: rgb(59, 59, 59);
-        color:rgb(204, 204, 204);
-
+        background: rgb(100, 100, 100);
+        color:rgb(247, 247, 247);
+        opacity: 0.7;
+        transition: .3s;
+        &:focus {
+            outline: none;
+        }
+        &:focus-within {
+            background: white;
+            opacity: 1;
+            color:rgb(31, 31, 31);
+            border: none;
+        }
     }
 }
 
@@ -92,6 +102,27 @@ body {
         width: 75vw;
         float: right;
 
+        & .buttons-container {
+            margin-top: -35px;
+
+            & .button-favorite {
+                padding: 15px 25px;
+                margin-right: 10px;
+                border: none;
+                border-radius: 5px;
+                background: white;
+                cursor: pointer;
+            }
+            & .button-wishlist {
+                padding: 15px 25px;
+                margin-right: 10px;
+                border: none;
+                border-radius: 5px;
+                background: white;
+                cursor: pointer;
+            }
+        }
+
         & .game-overview-text {
             color: rgb(197, 197, 197);
             margin-bottom: 0;
@@ -134,6 +165,55 @@ body {
                         margin: 0 5px;
                         vertical-align: middle;
                     }
+                }
+            }
+        }
+        & .game-description-container {
+            width: 35vw;
+            color: white;
+
+            & .roll-dsc-btn {
+                width: 90px;
+                padding: 3px 0px;
+                font-size: 12px;
+                color:black;
+                background: white;
+                text-align: center;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+        }
+        & .other-info-container {
+            width: 35vw;
+            color: white;
+            & div {
+                display: inline-block;
+            }
+            & .other-info-platform-container {
+                width: 17vw;
+            }
+            & .other-info-metascore-container {
+                width: 17vw;
+                float: right;
+                text-align: center;
+
+                & .metascore-value {
+                    width: 50px;
+                    margin: 0 auto;
+                    padding: 10px 0px;
+                    border-radius: 7px;
+                }
+            }
+            & .other-info-genre-container {
+                width: 17vw;
+            }
+
+            & .other-info-release-container {
+                text-align: center;
+                float: right;
+                width: 17vw;
+                & p {
+                    margin-left: -50px;
                 }
             }
         }

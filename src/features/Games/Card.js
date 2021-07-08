@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import getIcon from './functions/getIcon'
+import getMetaColor from './functions/getMetaColor'
 import { nanoid } from 'nanoid'
 
 const Card = (props) => {
 
-    const { game, setImageLoaded, getMetaColor, imageLoaded } = props
+    const { game, setImageLoaded, imageLoaded } = props
 
     const [infoVisible, setInfoVisible] = useState(false)
 
@@ -44,7 +45,7 @@ const Card = (props) => {
                                 </div>
                             ))}
                         </div>
-                        <Link style={{textDecoration: 'none', color: 'inherit'}} to={{pathname: '/game/' + getGameLink(game.name), state: {gameData: game}}}><p className="game-name">{game.name}</p></Link>
+                        <Link style={{textDecoration: 'none', color: 'inherit'}} to={{pathname: '/game/' + getGameLink(game.name)}}><p className="game-name">{game.name}</p></Link>
                         <div className="game-metacritic-container">
                             <p style={getMetaColor(game.metacritic)} className="game-metacritic">{game.metacritic}</p>
                         </div>

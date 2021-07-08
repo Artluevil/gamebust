@@ -37,8 +37,22 @@ body {
   padding-left: 15px;
   border-radius: 20px;
   border: none;
-  background: #3b3b3b;
-  color: #cccccc;
+  background: #646464;
+  color: #f7f7f7;
+  opacity: 0.7;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.search-engine-container input:focus {
+  outline: none;
+}
+
+.search-engine-container input:focus-within {
+  background: white;
+  opacity: 1;
+  color: #1f1f1f;
+  border: none;
 }
 
 .logo-container .logo-name {
@@ -93,6 +107,28 @@ body {
   float: right;
 }
 
+.game-overview-container .game-overview-content .buttons-container {
+  margin-top: -35px;
+}
+
+.game-overview-container .game-overview-content .buttons-container .button-favorite {
+  padding: 15px 25px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  background: white;
+  cursor: pointer;
+}
+
+.game-overview-container .game-overview-content .buttons-container .button-wishlist {
+  padding: 15px 25px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  background: white;
+  cursor: pointer;
+}
+
 .game-overview-container .game-overview-content .game-overview-text {
   color: #c5c5c5;
   margin-bottom: 0;
@@ -137,6 +173,62 @@ body {
   width: 18px;
   margin: 0 5px;
   vertical-align: middle;
+}
+
+.game-overview-container .game-overview-content .game-description-container {
+  width: 35vw;
+  color: white;
+}
+
+.game-overview-container .game-overview-content .game-description-container .roll-dsc-btn {
+  width: 90px;
+  padding: 3px 0px;
+  font-size: 12px;
+  color: black;
+  background: white;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.game-overview-container .game-overview-content .other-info-container {
+  width: 35vw;
+  color: white;
+}
+
+.game-overview-container .game-overview-content .other-info-container div {
+  display: inline-block;
+}
+
+.game-overview-container .game-overview-content .other-info-container .other-info-platform-container {
+  width: 17vw;
+}
+
+.game-overview-container .game-overview-content .other-info-container .other-info-metascore-container {
+  width: 17vw;
+  float: right;
+  text-align: center;
+}
+
+.game-overview-container .game-overview-content .other-info-container .other-info-metascore-container .metascore-value {
+  width: 50px;
+  margin: 0 auto;
+  padding: 10px 0px;
+  border-radius: 7px;
+}
+
+.game-overview-container .game-overview-content .other-info-container .other-info-genre-container {
+  width: 17vw;
+}
+
+.game-overview-container .game-overview-content .other-info-container .other-info-release-container {
+  text-align: center;
+  float: right;
+  width: 17vw;
+}
+
+.game-overview-container .game-overview-content .other-info-container .other-info-release-container p {
+  margin-left: -50px;
 }
 
 .games-cards-container {

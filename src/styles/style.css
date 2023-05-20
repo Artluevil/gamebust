@@ -2,6 +2,7 @@ body {
   margin: 0;
   background: #1f1e1e;
   font-family: 'Lato', sans-serif;
+  overflow-x: hidden;
 }
 
 .page-switch-container {
@@ -63,7 +64,7 @@ body {
 }
 
 .game-overview-container {
-  background: gold;
+  display: inline-block;
 }
 
 .game-overview-container .image-container {
@@ -82,7 +83,7 @@ body {
   display: inline-block;
   z-index: 1;
   -o-object-fit: fill;
-     object-fit: fill;
+  object-fit: fill;
 }
 
 .game-overview-container .image-container .image-wrapper img {
@@ -102,9 +103,101 @@ body {
   background: linear-gradient(0deg, #1f1e1e 0%, #1f1e1e 53%, rgba(31, 30, 30, 0.96) 59%, rgba(31, 30, 30, 0) 100%);
 }
 
+.game-overview-container .game-overview-right-panel-container {
+  background: transparent;
+  display: inline-block;
+  vertical-align: top;
+  width: 20vw;
+  margin-left: 5vw;
+  margin-top: 30px;
+}
+
+.game-overview-container .game-overview-right-panel-container .main-screenshot-container .main-screenshot {
+  width: 25vw;
+  min-width: 310px;
+}
+
+.game-overview-container .game-overview-right-panel-container .other-screenshot-container {
+  display: inline-block;
+  width: 26vw;
+  min-width: 310px;
+}
+
+.game-overview-container .game-overview-right-panel-container .other-screenshot-container div {
+  display: inline-block;
+  margin-left: 5px;
+  margin-top: 10px;
+}
+
+.game-overview-container .game-overview-right-panel-container .other-screenshot-container .other-screenshot {
+  width: 12vw;
+  min-width: 150px;
+}
+
+.game-overview-container .game-overview-right-panel-container .other-screenshot-with-read-more {
+  position: relative;
+}
+
+.game-overview-container .game-overview-right-panel-container .other-screenshot-with-read-more .read-more-wrapper {
+  position: absolute;
+  background: black;
+  opacity: .8;
+  top: -10px;
+  left: -5px;
+  bottom: 0;
+  right: 0;
+  width: 12vw;
+  min-width: 150px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 80px;
+  cursor: pointer;
+}
+
+.game-overview-container .game-overview-right-panel-container .other-screenshot-with-read-more .read-more-wrapper p {
+  position: relative;
+  opacity: 1;
+  color: white;
+  font-size: 20px;
+}
+
+.game-overview-container .game-overview-right-panel-container .store-buttons-container h2 {
+  color: white;
+}
+
+.game-overview-container .game-overview-right-panel-container .store-buttons-container .buttons-wrapper {
+  width: 26vw;
+  min-width: 300px;
+  text-align: center;
+}
+
+.game-overview-container .game-overview-right-panel-container .store-buttons-container .buttons-wrapper .store-button {
+  width: 9vw;
+  text-align: center;
+  display: inline-block;
+  background: #313131;
+  padding: 0px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 5px 5px;
+}
+
+.game-overview-container .game-overview-right-panel-container .store-buttons-container .buttons-wrapper .store-button .store-image {
+  width: 28px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+.game-overview-container .game-overview-right-panel-container .store-buttons-container .buttons-wrapper .store-button .store-name {
+  color: #979797;
+  display: inline-block;
+}
+
 .game-overview-container .game-overview-content {
-  width: 75vw;
-  float: right;
+  margin-left: 20vw;
+  width: 35vw;
+  display: inline-block;
 }
 
 .game-overview-container .game-overview-content .buttons-container {
@@ -201,12 +294,12 @@ body {
 }
 
 .game-overview-container .game-overview-content .other-info-container .other-info-platform-container {
-  width: 17vw;
+  width: 45%;
+  margin-right: 5%;
 }
 
 .game-overview-container .game-overview-content .other-info-container .other-info-metascore-container {
-  width: 17vw;
-  float: right;
+  width: 45%;
   text-align: center;
 }
 
@@ -218,17 +311,27 @@ body {
 }
 
 .game-overview-container .game-overview-content .other-info-container .other-info-genre-container {
-  width: 17vw;
+  width: 45%;
+  margin-right: 5%;
 }
 
 .game-overview-container .game-overview-content .other-info-container .other-info-release-container {
+  width: 45%;
   text-align: center;
-  float: right;
-  width: 17vw;
 }
 
-.game-overview-container .game-overview-content .other-info-container .other-info-release-container p {
-  margin-left: -50px;
+.game-overview-container .game-overview-content .other-info-container .other-info-developer-container {
+  width: 45%;
+  margin-right: 5%;
+}
+
+.game-overview-container .game-overview-content .other-info-container .other-info-publisher-container {
+  width: 45%;
+  text-align: center;
+}
+
+.game-overview-container .game-overview-content .requirements-container {
+  color: white;
 }
 
 .games-cards-container {
@@ -246,8 +349,8 @@ body {
 
 .card-wrapper:hover {
   -webkit-transform: scale(105%);
-          transform: scale(105%);
-  z-index: 99;
+  transform: scale(105%);
+  z-index: 10 !important;
 }
 
 .game-card-container {
@@ -347,7 +450,7 @@ body {
   padding-bottom: 10px;
   text-align: initial;
   border-radius: 0px 0px 15px 15px;
-  z-index: 99 !important;
+  z-index: 10 !important;
   padding-left: 4px;
 }
 
@@ -419,8 +522,8 @@ body {
 .hover-container .hover-info-vis .show-more-container {
   text-align: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   color: #e6e6e6;
   margin-top: 0;
   padding-top: -5px;
@@ -447,4 +550,82 @@ body {
   margin-top: 8px;
   margin-bottom: 8px;
 }
+
+/* SEARCH BAR STYLES */
+.search-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99 !important;
+  display: block;
+  height: auto;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: white;
+  background: black;
+  margin-top: 45px;
+  width: 100%;
+}
+
+.search-result {
+  display: block;
+  margin-left: 20px;
+}
+
+.search-result-container {
+  vertical-align: middle;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  border-bottom: 1px solid rgb(54, 54, 54);
+}
+
+.search-result-info {
+  display: inline;
+  width: 100%;
+  vertical-align: middle;
+}
+
+.search-result-info p {
+  display: inline;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 40px
+}
+
+.search-result-info img {
+  margin-left: 15px;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 5px;
+}
+
+.search-result-image {
+  width: 50px;
+  height: 50px;
+}
+
+.close-search-btn {
+  border-radius: 100%;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0 4px 0 -26px;
+  cursor: pointer;
+  margin-bottom: -10px;
+  z-index: 99 !important;
+  position: absolute;
+  top: 10px;
+}
+
+.close-search-btn-icon {
+  background-image: url(../images/close-icon.svg);
+  background-size: cover;
+  height: 10px;
+  width: 10px;
+  margin: 6px;
+  display: flex;
+  margin-bottom: 0px;
+  width: 10px;
+}
+
 /*# sourceMappingURL=style.css.map */

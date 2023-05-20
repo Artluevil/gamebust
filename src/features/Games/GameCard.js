@@ -14,32 +14,35 @@ export default function GameCard() {
     const [imageLoaded, setImageLoaded] = useState(false)
 
     function handleLoadData() {
-        if(dataStatus === 'loading') {
+        console.log('Game data status: ' + dataStatus)
+        if (dataStatus === 'loading') {
             return <p>Loading...</p>
-        }else if(dataStatus === 'success') {
+        } else if (dataStatus === 'success') {
+            console.log('Game data loaded')
+            console.log(gamesData)
             return gamesData.results.map(game => (
-                <Card game={game} setImageLoaded={setImageLoaded} imageLoaded={imageLoaded}/>
+                <Card game={game} setImageLoaded={setImageLoaded} imageLoaded={imageLoaded} />
             ))
-        } else if(dataStatus === 'failed') {
+        } else if (dataStatus === 'failed') {
             return <p>Data loading failed</p>
         }
     }
 
     function handleLoadSwitchButtons() {
-        if(dataStatus === 'success') {
+        if (dataStatus === 'success') {
             return <div className="page-switch-container">
-                        <p onClick={() => handlePreviousPage()}>Previous Page</p>
-                        <p onClick={() => handleNextPage()}>Next Page</p>
-                    </div>
+                <p onClick={() => handlePreviousPage()}>Previous Page</p>
+                <p onClick={() => handleNextPage()}>Next Page</p>
+            </div>
         }
     }
 
     function handleNextPage() {
         dispatch(setPage(currentPage + 1))
     }
-    
+
     function handlePreviousPage() {
-        if(currentPage !== 1) {
+        if (currentPage !== 1) {
             dispatch(setPage(currentPage - 1))
         }
     }

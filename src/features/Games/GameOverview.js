@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { setTrailers, setScreenshots } from './gamesSlice'
+import GameOverviewRight from './GameOverviewRight'
 import getIcon from './functions/getIcon'
 import getMetaColor from './functions/getMetaColor'
 import axios from 'axios'
@@ -7,17 +10,30 @@ import { useParams } from 'react-router'
 
 function GameOverview() {
 
-    // const { gameData } = props.location.state
+    const dispatch = useDispatch()
+
     const [gameData, setGameData] = useState({})
     const [gameDataMore, setGameDataMore] = useState({})
-    const [gameDataLoading, setGameDataLoading] = useState(false)
+    const [isLoaded, setIsLoaded] = useState(false)
     const [gameDataPlatforms, setGameDataPlatforms] = useState([])
     const [gameDataPlatformsOther, setGamePlatformsOther] = useState([])
     const [gameDataGenres, setGameDataGenres] = useState([])
+    const [gameDataDevelopers, setGameDataDevelopers] = useState([])
+    const [gamesDataPublishers, setGameDataPublishers] = useState([])
+    const [gameDataMovies, setGameDataMovies] = useState({})
+    const [gameDataScreenshots, setGameDataScreenshots] = useState({})
+    const [gameDataStores, setGameDataStores] = useState([])
     const [moreDescription, setMoreDescription] = useState(false)
     const [shortDescription, setShortDescription] = useState('')
+    const [gameReq, setGameReq] = useState({})
 
     const {gameName} = useParams()
+
+    function getGameLink(gameName) {
+        let linkName = gameName
+        linkName = linkName.replace(/\s+/g, '-').toLowerCase()
+        return linkName
+    }
 
     useEffect(() => {
         // console.log(props.location.state.gameData)
@@ -48,7 +64,6 @@ function GameOverview() {
         // fetchGameData()
         
         const getGameData = async () => {
-            setGameDataLoading(true)
             await axios.get('https://api.rawg.io/api/games', {
                 params: {
                     key: '3dd9328ac4df40a89ea737d2070e850f',
@@ -59,7 +74,7 @@ function GameOverview() {
                     }
                 })
                 .then(function (response) {
-                    console.log(response.data.results[0])
+                    console.log(gameData)
                     setGameData(response.data.results[0])
                     setGameDataPlatforms(response.data.results[0].parent_platforms)
 
@@ -75,17 +90,43 @@ function GameOverview() {
                     setGameDataMore(response.data)
                     setGamePlatformsOther(response.data.platforms)
                     setGameDataGenres(response.data.genres)
+                    setGameDataDevelopers(response.data.developers)
+                    setGameDataPublishers(response.data.publishers)
+                    setGameDataStores(response.data.stores)
                     setShortDescription(response.data.description_raw.substring(0, 500) + '...')
-                    setGameDataLoading(false)
+                    response.data.platforms.map(platformData => {
+                        console.log(platformData.platform.name)
+                        if(platformData.platform.name === "PC") {
+                            setGameReq(platformData.requirements)
+                        }
+                    })
+
                 })
+            axios.get('https://api.rawg.io/api/games/' + gameData.id + '/movies', {
+                params: {
+                    key: '3dd9328ac4df40a89ea737d2070e850f'
+                }
+            })
+            .then( function (response){
+                console.log(response.data)
+                setGameDataMovies(response.data)
+            })
+            axios.get('https://api.rawg.io/api/games/' + gameData.id + '/screenshots', {
+                params: {
+                    key: '3dd9328ac4df40a89ea737d2070e850f'
+                }
+            })
+            .then( function (response){
+                setGameDataScreenshots(response.data)
+                setIsLoaded(true)
+            })
         }
         getGameData()
     }, [gameData.id])
 
     return (
         <div>
-            {gameDataLoading ? <p>Loading...</p> : 
-                <div className="game-overview-container">
+            {isLoaded ? <div className="game-overview-container">
                     <div className="image-container">
                         <div className="image-wrapper">
                             <img src={gameData.background_image}/>
@@ -143,9 +184,28 @@ function GameOverview() {
                                 <h2>Release date</h2>
                                 <p>{gameData.released}</p>
                             </div>
+                            <div className="other-info-developer-container">
+                                <h2>Developer</h2>
+                                <p>{gameDataDevelopers.map(developerData => (
+                                    developerData.name + ', '
+                                ))}</p>
+                            </div>
+                            <div className="other-info-publisher-container">
+                                <h2>Publisher</h2>
+                                <p>{gamesDataPublishers.map(publisherData => (
+                                    publisherData.name
+                                ))}</p>
+                            </div>
+                        </div>
+                        <div className="requirements-container">
+                            <h2>System requirements for PC</h2>
+                            <p>{gameReq.minimum}</p>
+                            <p>{gameReq.recommended}</p>
                         </div>
                     </div>
-            </div>}
+                    <GameOverviewRight gameDataStores={gameDataStores} gameData={gameData} gameDataMovies={gameDataMovies} gameDataScreenshots={gameDataScreenshots}/>
+            </div> : 
+            <p>Loading...</p>}
         </div>
     )
 }

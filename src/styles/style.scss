@@ -20,7 +20,7 @@ body {
 
 .left-panel-container {
     position: fixed;
-    top: 20vh;
+    top: 10vh;
     left: 25px;
     color: white;
     width: 12vw;
@@ -519,5 +519,77 @@ body {
             }
         }
     }
-
 }
+.close-search-btn {
+    border-radius: 100%;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0 4px 0 -26px;
+    cursor: pointer;
+    margin-bottom: -10px;
+    z-index: 99 !important;
+    position: absolute;
+    top: 10px;
+  }
+  
+  .close-search-btn-icon {
+    background-image: url(../images/close-icon.svg);
+    background-size: cover;
+    height: 10px;
+    width: 10px;
+    margin: 6px;
+    display: flex;
+    margin-bottom: 0px;
+    width: 10px;
+  }
+
+  /* SEARCH BAR STYLES SCSS*/
+
+
+.search-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99 !important;
+    display: block;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: white;
+    background: black;
+    margin-top: 45px;
+    width: 100%;
+
+    & .search-result-container {
+        vertical-align: middle;
+        padding-bottom: 10px;
+        margin-top: 10px;
+        border-bottom: 1px solid rgb(54, 54, 54);
+
+        & .search-result-info {
+          display: inline;
+          width: 100%;
+          vertical-align: middle;
+
+          & p {
+            display: inline;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 40px;
+            margin-left: 10px !important;
+          }
+
+          & img {
+            margin-left: 15px;
+            text-align: center;
+            vertical-align: middle;
+            border-radius: 5px;
+          }
+          & .search-result-image {
+            width: 50px;
+            height: 50px;
+          }
+        }
+      }
+  }

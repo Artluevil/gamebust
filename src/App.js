@@ -4,6 +4,7 @@ import GameOverview from './features/Games/GameOverview'
 import LeftPanel from './features/Games/LeftPanel'
 import SearchEngine from './features/Games/SearchEngine'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import './styles/style.scss'
 
 function App() {
   return (

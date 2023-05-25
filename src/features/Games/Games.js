@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getGames, selectPage, searchGames, selectDates } from './gamesSlice'
 import GameCard from './GameCard'
-import '../../styles/style.css'
 
 export default function Games() {
 
@@ -13,6 +12,7 @@ export default function Games() {
 
     useEffect(() => {
         dispatch(getGames())
+        
     }, [currentPage, currentGameDates])
 
 

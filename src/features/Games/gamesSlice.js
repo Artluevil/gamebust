@@ -9,7 +9,8 @@ const initialState = {
     status: 'idle',
     page: 1,
     LastMonthResults: true,
-    dates: '',
+    dates: '2020-12-01,2023-12-31',
+    metacriticScore: '',
 }
 
 export const getGames = createAsyncThunk('games/getGames', (arg, {getState}) => {
@@ -19,7 +20,8 @@ export const getGames = createAsyncThunk('games/getGames', (arg, {getState}) => 
         return fetch('https://api.rawg.io/api/games?key=3dd9328ac4df40a89ea737d2070e850f&' + new URLSearchParams({
             page: getState().games.page,
             //'2020-12-01,2020-12-31'
-            dates: getState().games.dates
+            dates: getState().games.dates, 
+            metacritic: getState().games.metacriticScore
         })).then((res) =>
             res.json()
         )
@@ -47,6 +49,9 @@ const gamesSlice = createSlice({
         setGamesDates: (state, action) => {
             state.dates = action.payload
         },
+        setMetacriticScore: (state, action) => {
+            state.metacriticScore = action.payload
+        }
     },
     extraReducers: {
         [getGames.pending]: (state, action) => {
@@ -81,5 +86,6 @@ export const { setPage } = gamesSlice.actions
 export const { setScreenshots } = gamesSlice.actions
 export const { setTrailers } = gamesSlice.actions
 export const { setGamesDates } = gamesSlice.actions 
+export const { setMetacriticScore } = gamesSlice.actions
 
 export default gamesSlice.reducer

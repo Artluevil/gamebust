@@ -593,3 +593,20 @@ body {
         }
       }
   }
+
+  .screenshot-container {
+    width: 80vw;
+    display: inline-block;
+    text-align: center;
+    margin-left: 200px;
+
+    & .screenshot-wrapper {
+        display: inline-block;
+        margin-left: 20px;
+        margin-top: 50px;
+
+        & .game-screenshot {
+            width: 500px;
+        }
+    }
+  }

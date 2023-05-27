@@ -33,6 +33,7 @@ export const getGames = createAsyncThunk('games/getGames', (arg, {getState}) => 
         )
     }
 })
+
 const gamesSlice = createSlice({
     name: 'games',
     initialState,

@@ -37,7 +37,7 @@ export default function GameOverviewRight(props) {
                 ))}
                 <div className="other-screenshot-with-read-more">
                     <img className="other-screenshot" src={gameDataScreenshots.results[4] ? gameDataScreenshots.results[4].image : GamePlaceholder}/>
-                    <Link to={'/game/' + gameData.name.replace(/\s+/g, '-').toLowerCase() + '/screenshots'}>
+                    <Link to={{pathname: '/game/' + gameData.name.replace(/\s+/g, '-').toLowerCase() + '/screenshots'}}>
                         <div className="read-more-wrapper">
                             <p>view all</p>
                         </div>

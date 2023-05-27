@@ -7,6 +7,7 @@ import getMetaColor from './functions/getMetaColor'
 import axios from 'axios'
 import { nanoid } from 'nanoid'
 import { useParams } from 'react-router'
+import { setCurrentGame } from './ScreenshotSlice'
 
 function GameOverview() {
 
@@ -35,34 +36,7 @@ function GameOverview() {
         return linkName
     }
 
-    useEffect(() => {
-        // console.log(props.location.state.gameData)
-        // fetch('https://api.rawg.io/api/games?key=3dd9328ac4df40a89ea737d2070e850f&', new URLSearchParams({
-        //     search: 'Grand Theft Auto V',
-        //     search_exact: true,
-        //     page_size: 1
-        // })).then((res) => {
-        //     console.log(res.json())
-        // })
-        // const fetchGameData = async () => {
-        //     setGameDataLoading(true)
-        //     const result = await axios(
-        //         'https://api.rawg.io/api/games', {
-        //             params: {
-        //                 key: '3dd9328ac4df40a89ea737d2070e850f',
-        //                 search: 'grand-theft-auto-v',
-        //                 page_size: 1,
-        //                 search_precise: true,
-        //                 search_exact: true
-        //             }
-        //         }
-        //     ).then(setGameData(result.json()))
-        //     // setGameData(result.data.results[0])
-        //     // console.log(result.data.results[0])
-        //     // setGameDataLoading(false)
-        // }
-        // fetchGameData()
-        
+    useEffect(() => {        
         const getGameData = async () => {
             await axios.get('https://api.rawg.io/api/games', {
                 params: {
@@ -108,7 +82,7 @@ function GameOverview() {
                 }
             })
             .then( function (response){
-                console.log(response.data)
+                console.log( response.data)
                 setGameDataMovies(response.data)
             })
             axios.get('https://api.rawg.io/api/games/' + gameData.id + '/screenshots', {
@@ -124,6 +98,7 @@ function GameOverview() {
         getGameData()
     }, [gameData.id])
 
+    dispatch(setCurrentGame(gameData.slug))
     return (
         <div>
             {isLoaded ? <div className="game-overview-container">

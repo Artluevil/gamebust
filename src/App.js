@@ -3,7 +3,8 @@ import Games from './features/Games/Games'
 import GameOverview from './features/Games/GameOverview'
 import LeftPanel from './features/Games/LeftPanel'
 import SearchEngine from './features/Games/SearchEngine'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import ScreenshotsPage from './features/Games/ScreenshotsPage'
+import {BrowserRouter as Router, Switch, Route, Routes} from 'react-router-dom'
 import './styles/style.scss'
 
 function App() {
@@ -20,7 +21,8 @@ function App() {
             <Games />
           </div>
         </Route>
-        <Route path="/game/:gameName" component={GameOverview}/>
+        <Route exact path="/game/:gameName" component={GameOverview} />
+        <Route exact path="/game/:gameName/screenshots" component={ScreenshotsPage}/>
       </Switch>
     </Router>
   )

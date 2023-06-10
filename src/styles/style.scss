@@ -610,3 +610,51 @@ body {
         }
     }
   }
+
+  .left-panel-container {
+
+    & .new-release-container {
+       
+        & .options-wrapper {
+            width: 250px;
+            & .option-container {
+                display: inline-block;
+                cursor: pointer;
+                margin-bottom: 5px;
+                padding: 0px 20px;
+                & img {
+                    display: inline-block;
+                    width: 30px;
+                    vertical-align:middle
+                }
+    
+                & p {
+                    display: inline-block;
+                    margin-left: 5px;
+                }
+            }
+            & .option-container:hover {
+                background: rgba(73, 72, 72, 0.3);
+                transition: .3s;
+            }
+        }
+    }
+  }
+
+.mobile-menu {
+    width: 200px;
+    position: absolute;
+    right: 0px;
+    top: 0px !important;
+    z-index: 999 !important;
+    & .mobile-menu-container {
+        background: white;
+        right: 0px;
+        position: absolute;
+        z-index: 999 !important;
+        padding-right: 30px;
+        padding-left: 20px;
+        padding-top: 40px;
+        padding-bottom: 30px;
+      }
+}

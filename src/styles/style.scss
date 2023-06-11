@@ -656,5 +656,331 @@ body {
         padding-left: 20px;
         padding-top: 40px;
         padding-bottom: 30px;
+
+        & .close-icon {
+            width: 25px;
+            float: right;
+            margin-top: -15px;
+        }
       }
+    & .mobile-menu-container-hidden {
+        display: none;
+    }
+
+    & .mobile-menu-btn-container {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        & .mobile-menu-btn {
+            width: 35px;
+        }
+    }
+}
+
+//Responsive
+@media (max-width: 1000px) {
+    .search-engine-container {
+        position: absolute;
+        left: 210px;
+        top: 30px;
+    
+        & input {
+            width: 50vw;
+        }
+    }
+    .game-overview-container {
+        display: inline-block;
+    
+        .image-container {
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+            text-align: center;
+    
+            & .image-wrapper {
+                position: relative;
+                display: inline-block;
+                z-index: 1;
+                object-fit: fill;
+                
+                & img {
+                    display: block;
+                    opacity: .2;
+                    width: 100vw;
+                }
+        
+                & .image-overlay {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    bottom: 0;
+                    background: rgb(31,30,30);
+                    background: linear-gradient(0deg, rgba(31,30,30,1) 0%, rgba(31,30,30,1) 53%, rgba(31,30,30,0.96) 59%, rgba(31,30,30,0) 100%);
+                }
+            }
+        }
+    
+        & .game-overview-right-panel-container {
+            background: transparent;
+            display: block;
+            vertical-align: top;
+            width: 80vw;
+            margin-left: 10vw;
+            margin-top: 30px;
+            & .main-screenshot-container {
+                & .main-screenshot {
+                    width: 80vw;
+                    min-width: 310px;
+                }
+            }
+            & .other-screenshot-container {
+                display: inline-block;
+                width: 80vw;
+                min-width: 310px;
+                & div {
+                    display: inline-block;
+                    margin-left: 5px;
+                    margin-top: 10px;
+                }
+                & .other-screenshot {
+                    width: 38vw;
+                    min-width: 150px;
+                }
+            }
+            & .other-screenshot-with-read-more {
+                position: relative;
+                & .read-more-wrapper {
+                    position: absolute;
+                    background: black;
+                    opacity: .8;
+                    top: -10px;
+                    left: -5px;
+                    bottom: 0;
+                    right: 0;
+                    width: 39vw;
+                    min-width: 150px;
+                    text-align: center;
+                    vertical-align: middle;
+                    line-height: 80px;
+                    cursor: pointer;  
+                    & p {
+                        position: relative;
+                        opacity: 1;
+                        color: white;
+                        font-size: 20px;
+                    }
+                }
+            }
+            & .store-buttons-container {
+                & h2 {
+                    color: white;
+                }
+                & .buttons-wrapper {
+                    width: 80vw;
+                    min-width: 300px;
+                    text-align: initial;
+                    margin-left: 0vw;
+                    & .store-button {
+                        width: 150px;
+                        height: 100px;
+                        text-align: center;
+                        display: inline-block;
+                        background: rgb(49, 49, 49);
+                        padding: 0px 30px;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        margin: 5px 5px;
+                        & .store-image {
+                            width: 28px;
+                            display: block;
+                            text-align: center;
+                            vertical-align: middle;
+                            margin-left: 0px;
+                        }
+                        & .store-name {
+                            width: 150px !important;
+                            color: rgb(151, 151, 151);
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+        }
+    
+        & .game-overview-content {
+            margin-left:10vw;
+            width: 100vw;
+            display: inline-block;
+    
+            & .buttons-container {
+                margin-top: -35px;
+    
+                & .button-favorite {
+                    padding: 15px 25px;
+                    margin-right: 10px;
+                    border: none;
+                    border-radius: 5px;
+                    background: white;
+                    cursor: pointer;
+                }
+                & .button-wishlist {
+                    padding: 15px 25px;
+                    margin-right: 10px;
+                    border: none;
+                    border-radius: 5px;
+                    background: white;
+                    cursor: pointer;
+                }
+            }
+    
+            & .game-overview-text {
+                color: rgb(197, 197, 197);
+                margin-bottom: 0;
+                font-size: 20px;
+            }
+    
+            & .game-name {
+                width: 80vw;
+                color: white;
+                font-size: 42px;
+                margin-top: 0px
+            }
+    
+            & .released-and-platform {
+                display: inline-block;
+    
+                & .release-text {
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-right: 15px;
+                    background: white;
+                    padding: 2px 8px;
+                    border-radius: 4px;
+                }
+    
+                & .average-text {
+                    display: inline-block;
+                    vertical-align: middle;
+                    color: white;
+                    margin-left: 15px;
+                }
+    
+                & .platform-container {
+                    display: inline-block;
+        
+                    & div {
+                        display: inline-block;
+        
+                        & img {
+                            width: 18px;
+                            margin: 0 5px;
+                            vertical-align: middle;
+                        }
+                    }
+                }
+            }
+            & .game-description-container {
+                width: 80vw;
+                color: white;
+    
+                & .roll-dsc-btn {
+                    width: 90px;
+                    padding: 3px 0px;
+                    font-size: 12px;
+                    color:black;
+                    background: white;
+                    text-align: center;
+                    cursor: pointer;
+                    border-radius: 5px;
+                }
+            }
+            & .other-info-container {
+                width: 80vw;
+                color: white;
+                & div {
+                    display: inline-block;
+                }
+                & .other-info-platform-container {
+                    width: 45%;
+                    margin-right: 5%;
+                }
+                & .other-info-metascore-container {
+                    width: 45%;
+                    text-align: center;
+    
+                    & .metascore-value {
+                        width: 50px;
+                        margin: 0 auto;
+                        padding: 10px 0px;
+                        border-radius: 7px;
+                    }
+                }
+                & .other-info-genre-container {
+                    width: 45%;
+                    margin-right: 5%;
+                }
+    
+                & .other-info-release-container {
+                    width: 45%;
+                    text-align: center;
+                    & p {}
+                }
+                & .other-info-developer-container {
+                    width: 45%;
+                    margin-right: 5%;
+                }
+                & .other-info-publisher-container {
+                    width: 45%;
+                    text-align: center;
+                }
+            }
+            & .requirements-container {
+                color: white;
+                width: 80vw;
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .logo-container {
+        & .logo-name {
+            color: white;
+            font-size: 21px;
+            margin-left: 25px;
+            margin-top: 30px;
+        }
+    }
+    .search-engine-container {
+        position: absolute;
+        left: 140px;
+        top: 30px;
+    
+        & input {
+            width: 30vw;
+            height: 40px;
+            padding-left: 15px;
+            border-radius: 20px;
+            border: none;
+            background: rgb(100, 100, 100);
+            color:rgb(247, 247, 247);
+            opacity: 0.7;
+            transition: .3s;
+            &:focus {
+                outline: none;
+            }
+            &:focus-within {
+                background: white;
+                opacity: 1;
+                color:rgb(31, 31, 31);
+                border: none;
+            }
+        }
+    }
+
 }

@@ -38,17 +38,17 @@ export default function LeftPanel() {
                         <p className="option">Release calendar</p>
                     </div>
                     <h2>Top</h2>
-                    <div className="option-container" onClick={() => setGamesDatesWeek()}>
+                    <div className="option-container" onClick={() => setGamesMetacritic()}>
                         <img src={crownIcon}/>
-                        <p className="option" onClick={() => setGamesMetacritic()}>Best of the year</p>
+                        <p className="option">Best of the year</p>
                     </div>
-                    <div className="option-container" onClick={() => setGamesDatesWeek()}>
+                    <div className="option-container" onClick={() => setGamesPopular2022()}>
                         <img src={growthIcon}/>
-                        <p className="option" onClick={() => setGamesPopular2022()}>Popular in 2022</p>
+                        <p className="option">Popular in 2022</p>
                     </div>
-                    <div className="option-container" onClick={() => setGamesDatesWeek()}>
+                    <div className="option-container" onClick={() => setGamesPopularAllTime()}>
                         <img src={trophyIcon}/>
-                        <p className="option" onClick={() => setGamesPopularAllTime()}>All time best</p>
+                        <p className="option">All time best</p>
                     </div>
                 </div>
             </div>

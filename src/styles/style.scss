@@ -6,7 +6,7 @@ body {
 }
 
 .page-switch-container {
-    display: inline-block;
+    display: block;
 
     & p {
         display: inline-block;
@@ -38,16 +38,18 @@ body {
         border-radius: 20px;
         border: none;
         background: rgb(100, 100, 100);
-        color:rgb(247, 247, 247);
+        color: rgb(247, 247, 247);
         opacity: 0.7;
         transition: .3s;
+
         &:focus {
             outline: none;
         }
+
         &:focus-within {
             background: white;
             opacity: 1;
-            color:rgb(31, 31, 31);
+            color: rgb(31, 31, 31);
             border: none;
         }
     }
@@ -80,21 +82,21 @@ body {
             display: inline-block;
             z-index: 1;
             object-fit: fill;
-            
+
             & img {
                 display: block;
                 opacity: .2;
                 width: 100vw;
             }
-    
+
             & .image-overlay {
                 position: absolute;
                 top: 0;
                 right: 0;
                 left: 0;
                 bottom: 0;
-                background: rgb(31,30,30);
-                background: linear-gradient(0deg, rgba(31,30,30,1) 0%, rgba(31,30,30,1) 53%, rgba(31,30,30,0.96) 59%, rgba(31,30,30,0) 100%);
+                background: rgb(31, 30, 30);
+                background: linear-gradient(0deg, rgba(31, 30, 30, 1) 0%, rgba(31, 30, 30, 1) 53%, rgba(31, 30, 30, 0.96) 59%, rgba(31, 30, 30, 0) 100%);
             }
         }
     }
@@ -106,28 +108,34 @@ body {
         width: 20vw;
         margin-left: 5vw;
         margin-top: 30px;
+
         & .main-screenshot-container {
             & .main-screenshot {
                 width: 25vw;
                 min-width: 310px;
             }
         }
+
         & .other-screenshot-container {
             display: inline-block;
             width: 26vw;
             min-width: 310px;
+
             & div {
                 display: inline-block;
                 margin-left: 5px;
                 margin-top: 10px;
             }
+
             & .other-screenshot {
                 width: 12vw;
                 min-width: 150px;
             }
         }
+
         & .other-screenshot-with-read-more {
             position: relative;
+
             & .read-more-wrapper {
                 position: absolute;
                 background: black;
@@ -141,7 +149,8 @@ body {
                 text-align: center;
                 vertical-align: middle;
                 line-height: 80px;
-                cursor: pointer;  
+                cursor: pointer;
+
                 & p {
                     position: relative;
                     opacity: 1;
@@ -150,14 +159,17 @@ body {
                 }
             }
         }
+
         & .store-buttons-container {
             & h2 {
                 color: white;
             }
+
             & .buttons-wrapper {
                 width: 26vw;
                 min-width: 300px;
                 text-align: center;
+
                 & .store-button {
                     width: 9vw;
                     text-align: center;
@@ -167,12 +179,14 @@ body {
                     border-radius: 10px;
                     cursor: pointer;
                     margin: 5px 5px;
+
                     & .store-image {
                         width: 28px;
                         display: inline-block;
                         vertical-align: middle;
                         margin-left: 10px;
                     }
+
                     & .store-name {
                         color: rgb(151, 151, 151);
                         display: inline-block;
@@ -198,6 +212,7 @@ body {
                 background: white;
                 cursor: pointer;
             }
+
             & .button-wishlist {
                 padding: 15px 25px;
                 margin-right: 10px;
@@ -241,10 +256,10 @@ body {
 
             & .platform-container {
                 display: inline-block;
-    
+
                 & div {
                     display: inline-block;
-    
+
                     & img {
                         width: 18px;
                         margin: 0 5px;
@@ -253,6 +268,7 @@ body {
                 }
             }
         }
+
         & .game-description-container {
             width: 35vw;
             color: white;
@@ -261,23 +277,27 @@ body {
                 width: 90px;
                 padding: 3px 0px;
                 font-size: 12px;
-                color:black;
+                color: black;
                 background: white;
                 text-align: center;
                 cursor: pointer;
                 border-radius: 5px;
             }
         }
+
         & .other-info-container {
             width: 35vw;
             color: white;
+
             & div {
                 display: inline-block;
             }
+
             & .other-info-platform-container {
                 width: 45%;
                 margin-right: 5%;
             }
+
             & .other-info-metascore-container {
                 width: 45%;
                 text-align: center;
@@ -289,6 +309,7 @@ body {
                     border-radius: 7px;
                 }
             }
+
             & .other-info-genre-container {
                 width: 45%;
                 margin-right: 5%;
@@ -297,17 +318,21 @@ body {
             & .other-info-release-container {
                 width: 45%;
                 text-align: center;
+
                 & p {}
             }
+
             & .other-info-developer-container {
                 width: 45%;
                 margin-right: 5%;
             }
+
             & .other-info-publisher-container {
                 width: 45%;
                 text-align: center;
             }
         }
+
         & .requirements-container {
             color: white
         }
@@ -370,7 +395,7 @@ body {
             transition: .3s;
 
             &:hover {
-                color:rgb(158, 158, 158)
+                color: rgb(158, 158, 158)
             }
         }
 
@@ -426,30 +451,33 @@ body {
         padding-bottom: 10px;
         text-align: initial;
         border-radius: 0px 0px 15px 15px;
-        z-index: 99!important;
+        z-index: 99 !important;
         padding-left: 4px;
 
         & .esrb-container {
             display: inline-block;
-            color:rgb(133, 133, 133);
+            color: rgb(133, 133, 133);
             margin-top: -15px;
+
             & p {
                 display: inline-block;
                 font-size: 14px;
-            } 
+            }
+
             & .esrb-text {
                 margin-left: 15px;
             }
+
             & .esrb-rating {
                 width: 255px;
                 text-align: right;
-            } 
+            }
         }
 
         & .released-container {
             display: inline-block;
-            color:rgb(133, 133, 133);
-            margin-bottom: 0px; 
+            color: rgb(133, 133, 133);
+            margin-bottom: 0px;
             border-bottom: 1px solid gray;
             margin-left: 15px;
 
@@ -468,7 +496,7 @@ body {
 
         & .genres-container {
             display: inline-block;
-            color:rgb(133, 133, 133);
+            color: rgb(133, 133, 133);
             margin-bottom: 0px;
             border-bottom: 1px solid gray;
             margin-left: 15px;
@@ -490,10 +518,11 @@ body {
                 }
             }
         }
+
         & .show-more-container {
             text-align: center;
             align-items: center;
-            color:rgb(230, 230, 230);
+            color: rgb(230, 230, 230);
             margin-top: 0;
             padding-top: -5px;
             padding-bottom: 10px;
@@ -520,6 +549,7 @@ body {
         }
     }
 }
+
 .close-search-btn {
     border-radius: 100%;
     background-color: transparent;
@@ -531,9 +561,9 @@ body {
     z-index: 99 !important;
     position: absolute;
     top: 10px;
-  }
-  
-  .close-search-btn-icon {
+}
+
+.close-search-btn-icon {
     background-image: url(../images/close-icon.svg);
     background-size: cover;
     height: 10px;
@@ -542,9 +572,9 @@ body {
     display: flex;
     margin-bottom: 0px;
     width: 10px;
-  }
+}
 
-  /* SEARCH BAR STYLES SCSS*/
+/* SEARCH BAR STYLES SCSS*/
 
 
 .search-bar {
@@ -568,33 +598,34 @@ body {
         border-bottom: 1px solid rgb(54, 54, 54);
 
         & .search-result-info {
-          display: inline;
-          width: 100%;
-          vertical-align: middle;
-
-          & p {
             display: inline;
-            text-align: center;
+            width: 100%;
             vertical-align: middle;
-            line-height: 40px;
-            margin-left: 10px !important;
-          }
 
-          & img {
-            margin-left: 15px;
-            text-align: center;
-            vertical-align: middle;
-            border-radius: 5px;
-          }
-          & .search-result-image {
-            width: 50px;
-            height: 50px;
-          }
+            & p {
+                display: inline;
+                text-align: center;
+                vertical-align: middle;
+                line-height: 40px;
+                margin-left: 10px !important;
+            }
+
+            & img {
+                margin-left: 15px;
+                text-align: center;
+                vertical-align: middle;
+                border-radius: 5px;
+            }
+
+            & .search-result-image {
+                width: 50px;
+                height: 50px;
+            }
         }
-      }
-  }
+    }
+}
 
-  .screenshot-container {
+.screenshot-container {
     width: 80vw;
     display: inline-block;
     text-align: center;
@@ -609,37 +640,40 @@ body {
             width: 500px;
         }
     }
-  }
+}
 
-  .left-panel-container {
+.left-panel-container {
 
     & .new-release-container {
-       
+
         & .options-wrapper {
             width: 250px;
+
             & .option-container {
                 display: inline-block;
                 cursor: pointer;
                 margin-bottom: 5px;
                 padding: 0px 20px;
+
                 & img {
                     display: inline-block;
                     width: 30px;
-                    vertical-align:middle
+                    vertical-align: middle
                 }
-    
+
                 & p {
                     display: inline-block;
                     margin-left: 5px;
                 }
             }
+
             & .option-container:hover {
                 background: rgba(73, 72, 72, 0.3);
                 transition: .3s;
             }
         }
     }
-  }
+}
 
 .mobile-menu {
     width: 200px;
@@ -647,6 +681,7 @@ body {
     right: 0px;
     top: 0px !important;
     z-index: 999 !important;
+
     & .mobile-menu-container {
         background: white;
         right: 0px;
@@ -662,7 +697,8 @@ body {
             float: right;
             margin-top: -15px;
         }
-      }
+    }
+
     & .mobile-menu-container-hidden {
         display: none;
     }
@@ -671,6 +707,7 @@ body {
         position: absolute;
         right: 20px;
         top: 20px;
+
         & .mobile-menu-btn {
             width: 35px;
         }
@@ -683,14 +720,15 @@ body {
         position: absolute;
         left: 210px;
         top: 30px;
-    
+
         & input {
             width: 50vw;
         }
     }
+
     .game-overview-container {
         display: inline-block;
-    
+
         .image-container {
             position: absolute;
             z-index: -1;
@@ -700,31 +738,31 @@ body {
             left: 0;
             right: 0;
             text-align: center;
-    
+
             & .image-wrapper {
                 position: relative;
                 display: inline-block;
                 z-index: 1;
                 object-fit: fill;
-                
+
                 & img {
                     display: block;
                     opacity: .2;
                     width: 100vw;
                 }
-        
+
                 & .image-overlay {
                     position: absolute;
                     top: 0;
                     right: 0;
                     left: 0;
                     bottom: 0;
-                    background: rgb(31,30,30);
-                    background: linear-gradient(0deg, rgba(31,30,30,1) 0%, rgba(31,30,30,1) 53%, rgba(31,30,30,0.96) 59%, rgba(31,30,30,0) 100%);
+                    background: rgb(31, 30, 30);
+                    background: linear-gradient(0deg, rgba(31, 30, 30, 1) 0%, rgba(31, 30, 30, 1) 53%, rgba(31, 30, 30, 0.96) 59%, rgba(31, 30, 30, 0) 100%);
                 }
             }
         }
-    
+
         & .game-overview-right-panel-container {
             background: transparent;
             display: block;
@@ -732,28 +770,34 @@ body {
             width: 80vw;
             margin-left: 10vw;
             margin-top: 30px;
+
             & .main-screenshot-container {
                 & .main-screenshot {
                     width: 80vw;
                     min-width: 310px;
                 }
             }
+
             & .other-screenshot-container {
                 display: inline-block;
                 width: 80vw;
                 min-width: 310px;
+
                 & div {
                     display: inline-block;
                     margin-left: 5px;
                     margin-top: 10px;
                 }
+
                 & .other-screenshot {
                     width: 38vw;
                     min-width: 150px;
                 }
             }
+
             & .other-screenshot-with-read-more {
                 position: relative;
+
                 & .read-more-wrapper {
                     position: absolute;
                     background: black;
@@ -767,7 +811,8 @@ body {
                     text-align: center;
                     vertical-align: middle;
                     line-height: 80px;
-                    cursor: pointer;  
+                    cursor: pointer;
+
                     & p {
                         position: relative;
                         opacity: 1;
@@ -776,15 +821,18 @@ body {
                     }
                 }
             }
+
             & .store-buttons-container {
                 & h2 {
                     color: white;
                 }
+
                 & .buttons-wrapper {
                     width: 80vw;
                     min-width: 300px;
                     text-align: initial;
                     margin-left: 0vw;
+
                     & .store-button {
                         width: 150px;
                         height: 100px;
@@ -795,13 +843,15 @@ body {
                         border-radius: 10px;
                         cursor: pointer;
                         margin: 5px 5px;
+
                         & .store-image {
                             width: 28px;
                             display: block;
                             text-align: center;
                             vertical-align: middle;
-                            margin-left: 0px;
+                            margin-left: 37%;
                         }
+
                         & .store-name {
                             width: 150px !important;
                             color: rgb(151, 151, 151);
@@ -811,15 +861,15 @@ body {
                 }
             }
         }
-    
+
         & .game-overview-content {
-            margin-left:10vw;
+            margin-left: 10vw;
             width: 100vw;
             display: inline-block;
-    
+
             & .buttons-container {
                 margin-top: -35px;
-    
+
                 & .button-favorite {
                     padding: 15px 25px;
                     margin-right: 10px;
@@ -828,6 +878,7 @@ body {
                     background: white;
                     cursor: pointer;
                 }
+
                 & .button-wishlist {
                     padding: 15px 25px;
                     margin-right: 10px;
@@ -837,23 +888,23 @@ body {
                     cursor: pointer;
                 }
             }
-    
+
             & .game-overview-text {
                 color: rgb(197, 197, 197);
                 margin-bottom: 0;
                 font-size: 20px;
             }
-    
+
             & .game-name {
                 width: 80vw;
                 color: white;
                 font-size: 42px;
                 margin-top: 0px
             }
-    
+
             & .released-and-platform {
                 display: inline-block;
-    
+
                 & .release-text {
                     display: inline-block;
                     vertical-align: middle;
@@ -862,20 +913,20 @@ body {
                     padding: 2px 8px;
                     border-radius: 4px;
                 }
-    
+
                 & .average-text {
                     display: inline-block;
                     vertical-align: middle;
                     color: white;
                     margin-left: 15px;
                 }
-    
+
                 & .platform-container {
                     display: inline-block;
-        
+
                     & div {
                         display: inline-block;
-        
+
                         & img {
                             width: 18px;
                             margin: 0 5px;
@@ -884,35 +935,40 @@ body {
                     }
                 }
             }
+
             & .game-description-container {
                 width: 80vw;
                 color: white;
-    
+
                 & .roll-dsc-btn {
                     width: 90px;
                     padding: 3px 0px;
                     font-size: 12px;
-                    color:black;
+                    color: black;
                     background: white;
                     text-align: center;
                     cursor: pointer;
                     border-radius: 5px;
                 }
             }
+
             & .other-info-container {
                 width: 80vw;
                 color: white;
+
                 & div {
                     display: inline-block;
                 }
+
                 & .other-info-platform-container {
                     width: 45%;
                     margin-right: 5%;
                 }
+
                 & .other-info-metascore-container {
                     width: 45%;
                     text-align: center;
-    
+
                     & .metascore-value {
                         width: 50px;
                         margin: 0 auto;
@@ -920,27 +976,49 @@ body {
                         border-radius: 7px;
                     }
                 }
+
                 & .other-info-genre-container {
                     width: 45%;
                     margin-right: 5%;
                 }
-    
+
                 & .other-info-release-container {
                     width: 45%;
                     text-align: center;
+
                     & p {}
                 }
+
                 & .other-info-developer-container {
                     width: 45%;
                     margin-right: 5%;
                 }
+
                 & .other-info-publisher-container {
                     width: 45%;
                     text-align: center;
                 }
             }
+
             & .requirements-container {
                 color: white;
+                width: 80vw;
+            }
+        }
+    }
+
+    .screenshot-container {
+        width: 80vw;
+        display: inline-block;
+        text-align: center;
+        margin-left: 20px;
+
+        & .screenshot-wrapper {
+            display: inline-block;
+            margin-left: 20px;
+            margin-top: 50px;
+
+            & .game-screenshot {
                 width: 80vw;
             }
         }
@@ -956,11 +1034,12 @@ body {
             margin-top: 30px;
         }
     }
+
     .search-engine-container {
         position: absolute;
         left: 140px;
         top: 30px;
-    
+
         & input {
             width: 30vw;
             height: 40px;
@@ -968,16 +1047,18 @@ body {
             border-radius: 20px;
             border: none;
             background: rgb(100, 100, 100);
-            color:rgb(247, 247, 247);
+            color: rgb(255, 255, 255) !important;
             opacity: 0.7;
             transition: .3s;
+
             &:focus {
                 outline: none;
             }
+
             &:focus-within {
                 background: white;
                 opacity: 1;
-                color:rgb(31, 31, 31);
+                color: rgb(31, 31, 31);
                 border: none;
             }
         }

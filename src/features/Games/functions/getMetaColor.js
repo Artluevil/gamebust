@@ -8,7 +8,7 @@ const getMetaColor = function(metascore) {
     } else if(metascore > 40 && metascore <= 60) {
         return {color: 'orange', border: '1px solid orange'}
     } else {
-        return {color: 'red', border: '1px solid red'}
+        return {color: '#d4d4d4', border: '1px solid #d4d4d4'}
     }
 }
 

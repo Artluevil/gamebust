@@ -21,35 +21,49 @@ export default function LeftPanel() {
                 <Link style={{ textDecoration: 'none', color: 'inherit' }} to={{ pathname: '/' }}><h2>Home</h2></Link>
                 <h2>Releases</h2>
                 <div className="options-wrapper">
-                    <div className="option-container" onClick={() => setGamesDatesWeek()}>
-                        <img src={starIcon}/>
-                        <p className="option">Last week</p>
-                    </div>
-                    <div className="option-container" onClick={() => setGamesDates30days()}>
-                        <img src={fireIcon}/>
-                        <p className="option">Last 30 days</p>
-                    </div>
-                    <div className="option-container" onClick={() => setGamesDatesNewRealesesYear()}>
-                        <img src={binocularIcon}/>
-                        <p className="option">New realeses this year</p>
-                    </div>
-                    <div className="option-container">
-                        <img src={calendarIcon}/>
-                        <p className="option">Release calendar</p>
-                    </div>
+                    <Link style={{ textDecoration: 'none', color: 'inherit' }} to={{ pathname: '/' }}>
+                        <div className="option-container" onClick={() => setGamesDatesWeek()}>
+                            <img src={starIcon}/>
+                            <p className="option">Last week</p>
+                        </div>
+                    </Link>
+                    <Link style={{ textDecoration: 'none', color: 'inherit' }} to={{ pathname: '/' }}>
+                        <div className="option-container" onClick={() => setGamesDates30days()}>
+                            <img src={fireIcon}/>
+                            <p className="option">Last 30 days</p>
+                        </div>
+                    </Link>
+                    <Link style={{ textDecoration: 'none', color: 'inherit' }} to={{ pathname: '/' }}>
+                        <div className="option-container" onClick={() => setGamesDatesNewRealesesYear()}>
+                            <img src={binocularIcon}/>
+                            <p className="option">New realeses this year</p>
+                        </div>
+                    </Link>
+                    <Link style={{ textDecoration: 'none', color: 'inherit' }} to={{ pathname: '/' }}>
+                        <div className="option-container">
+                            <img src={calendarIcon}/>
+                            <p className="option">Release calendar</p>
+                        </div>
+                    </Link>
                     <h2>Top</h2>
-                    <div className="option-container" onClick={() => setGamesMetacritic()}>
-                        <img src={crownIcon}/>
-                        <p className="option">Best of the year</p>
-                    </div>
-                    <div className="option-container" onClick={() => setGamesPopular2022()}>
-                        <img src={growthIcon}/>
-                        <p className="option">Popular in 2022</p>
-                    </div>
-                    <div className="option-container" onClick={() => setGamesPopularAllTime()}>
-                        <img src={trophyIcon}/>
-                        <p className="option">All time best</p>
-                    </div>
+                    <Link style={{ textDecoration: 'none', color: 'inherit' }} to={{ pathname: '/' }}>
+                        <div className="option-container" onClick={() => setGamesMetacritic()}>
+                            <img src={crownIcon}/>
+                            <p className="option">Best of the year</p>
+                        </div>
+                    </Link>
+                    <Link style={{ textDecoration: 'none', color: 'inherit' }} to={{ pathname: '/' }}>
+                        <div className="option-container" onClick={() => setGamesPopular2022()}>
+                            <img src={growthIcon}/>
+                            <p className="option">Popular in 2022</p>
+                        </div>
+                    </Link>
+                    <Link style={{ textDecoration: 'none', color: 'inherit' }} to={{ pathname: '/' }}>
+                        <div className="option-container" onClick={() => setGamesPopularAllTime()}>
+                            <img src={trophyIcon}/>
+                            <p className="option">All time best</p>
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div>

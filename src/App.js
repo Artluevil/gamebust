@@ -5,6 +5,7 @@ import LeftPanel from './features/Games/LeftPanel'
 import MobileMenu from './features/Games/MobileMenu'
 import SearchEngine from './features/Games/SearchEngine'
 import ScreenshotsPage from './features/Games/ScreenshotsPage'
+import RealeaseCalendar from './features/Games/RealeaseCalendar'
 import { BrowserRouter as Router, Switch, Route, Routes } from 'react-router-dom'
 import './styles/style.scss'
 import { useState, useEffect } from 'react';
@@ -51,6 +52,7 @@ function App() {
         </Route>
         <Route exact path="/game/:gameName" component={GameOverview} />
         <Route exact path="/game/:gameName/screenshots" component={ScreenshotsPage} />
+        <Route exact path="/calendar" component={RealeaseCalendar} />
       </Switch>
     </Router>
   )

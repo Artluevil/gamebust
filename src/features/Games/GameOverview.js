@@ -180,7 +180,7 @@ function GameOverview() {
                     </div>
                     <GameOverviewRight gameDataStores={gameDataStores} gameData={gameData} gameDataMovies={gameDataMovies} gameDataScreenshots={gameDataScreenshots}/>
             </div> : 
-            <p>Loading...</p>}
+            <p style={{color: 'white', marginLeft: '50%'}}>Loading...</p>}
         </div>
     )
 }

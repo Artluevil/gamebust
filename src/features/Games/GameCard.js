@@ -16,7 +16,7 @@ export default function GameCard() {
     function handleLoadData() {
         console.log('Game data status: ' + dataStatus)
         if (dataStatus === 'loading') {
-            return <p>Loading...</p>
+            return <p style={{ color: 'white' }}>Loading...</p>
         } else if (dataStatus === 'success') {
             console.log('Game data loaded')
             console.log(gamesData)
@@ -24,7 +24,7 @@ export default function GameCard() {
                 <Card game={game} setImageLoaded={setImageLoaded} imageLoaded={imageLoaded} />
             ))
         } else if (dataStatus === 'failed') {
-            return <p>Data loading failed</p>
+            return <p style={{ color: 'white' }}>Data loading failed</p>
         }
     }
 

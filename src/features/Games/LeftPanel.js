@@ -39,7 +39,7 @@ export default function LeftPanel() {
                             <p className="option">New realeses this year</p>
                         </div>
                     </Link>
-                    <Link style={{ textDecoration: 'none', color: 'inherit' }} to={{ pathname: '/' }}>
+                    <Link style={{ textDecoration: 'none', color: 'inherit' }} to={{ pathname: '/calendar' }}>
                         <div className="option-container">
                             <img src={calendarIcon}/>
                             <p className="option">Release calendar</p>

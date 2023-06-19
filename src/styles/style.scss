@@ -714,6 +714,19 @@ body {
     }
 }
 
+.calendar-container {
+    text-align: center;
+    & h2 {
+        margin-top: 10vh;
+        color: white;
+        text-align: center;
+    }
+    & img {
+        width: 20vw;
+        text-align: center;
+    }
+}
+
 //Responsive
 @media (max-width: 1000px) {
     .search-engine-container {

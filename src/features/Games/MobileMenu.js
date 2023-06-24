@@ -24,28 +24,28 @@ export default function MobileMenu() {
             </div>
             <div className={isActive ? 'mobile-menu-container' : 'mobile-menu-container-hidden'}>
                 <img className="close-icon" src={closeBtn} onClick={() => toggleClass()} />
-                <Link style={{ textDecoration: 'none', color: 'inherit' }} to={{ pathname: '/' }}><h2>Home</h2></Link>
+                <Link style={{ textDecoration: 'none', color: 'inherit' }} to={{ pathname: '/gamebust' }}><h2>Home</h2></Link>
                 <h2>Releases</h2>
-                <Link style={{ textDecoration: 'none', color: 'inherit' }} to={{ pathname: '/' }}>
+                <Link style={{ textDecoration: 'none', color: 'inherit' }} to={{ pathname: '/gamebust' }}>
                     <p style={{cursor: 'pointer'}} onClick={() => setGamesDatesWeek()}>Last week</p>
                 </Link>
-                <Link style={{ textDecoration: 'none', color: 'inherit' }} to={{ pathname: '/' }}>
+                <Link style={{ textDecoration: 'none', color: 'inherit' }} to={{ pathname: '/gamebust' }}>
                     <p style={{cursor: 'pointer'}} onClick={() => setGamesDates30days()}>Last 30 days</p>
                 </Link>
-                <Link style={{ textDecoration: 'none', color: 'inherit' }} to={{ pathname: '/' }}>
+                <Link style={{ textDecoration: 'none', color: 'inherit' }} to={{ pathname: '/gamebust' }}>
                     <p style={{cursor: 'pointer'}} onClick={() => setGamesDatesNewRealesesYear()}>new realeses this year</p>
                 </Link>
-                <Link style={{ textDecoration: 'none', color: 'inherit' }} to={{ pathname: '/' }}>
+                <Link style={{ textDecoration: 'none', color: 'inherit' }} to={{ pathname: '/calendar' }}>
                     <p style={{cursor: 'pointer'}}>Release calendar</p>
                 </Link>
                 <h2>Top</h2>
-                <Link style={{ textDecoration: 'none', color: 'inherit' }} to={{ pathname: '/' }}>
+                <Link style={{ textDecoration: 'none', color: 'inherit' }} to={{ pathname: '/gamebust' }}>
                     <p style={{cursor: 'pointer'}} onClick={() => setGamesMetacritic()}>Best of the year</p>
                 </Link>
-                <Link style={{ textDecoration: 'none', color: 'inherit' }} to={{ pathname: '/' }}>
+                <Link style={{ textDecoration: 'none', color: 'inherit' }} to={{ pathname: '/gamebust' }}>
                     <p style={{cursor: 'pointer'}} onClick={() => setGamesPopular2022()}>Popular in 2022</p>
                 </Link>
-                <Link style={{ textDecoration: 'none', color: 'inherit' }} to={{ pathname: '/' }}>
+                <Link style={{ textDecoration: 'none', color: 'inherit' }} to={{ pathname: '/gamebust' }}>
                     <p style={{cursor: 'pointer'}} onClick={() => setGamesPopularAllTime()}>All time best</p>
                 </Link>
             </div>

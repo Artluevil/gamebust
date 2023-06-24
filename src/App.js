@@ -45,7 +45,7 @@ function App() {
       <SearchEngine />
       {mobilePanelLogic()}
       <Switch>
-        <Route exact path="/">
+        <Route exact path="/gamebust">
           <div>
             <Games />
           </div>

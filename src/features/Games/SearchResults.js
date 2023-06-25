@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import { selectDataStatus } from './searchSlice'
+import { setSearch, setStartSearch } from './searchSlice'
+
 
 const SearchResults = (props) => {
 
     const { searchData } = props
+    const dispatch = useDispatch()
 
     function getGameLink(gameName) {
         let linkName = gameName
@@ -13,12 +15,17 @@ const SearchResults = (props) => {
         return linkName
     }
 
+    function clearSearch() {
+        dispatch(setStartSearch(false))
+        dispatch(setSearch(""))
+    }
+
     return (
-        <div class="search-result-container">
-            <div className="search-result-info" onClick={() => {window.location.href='/game/' + getGameLink(searchData.name)}} style={{cursor: 'pointer'}}> 
+        <div className="search-result-container">
+            <Link className="search-result-info" style={{ textDecoration: 'none', color: 'inherit' }} to={{ pathname: '/game/' + getGameLink(searchData.name)}} onClick={() => clearSearch()}> 
                 <img className="search-result-image" src={searchData.background_image}/>
-                <p class="search-result">{searchData.name}</p>
-            </div>
+                <p className="search-result">{searchData.name}</p>
+            </Link>
         </div>
     )
 }

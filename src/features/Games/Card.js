@@ -2,19 +2,19 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import getIcon from './functions/getIcon'
 import getMetaColor from './functions/getMetaColor'
-import { nanoid } from 'nanoid'
+import uniqid from 'uniqid';
 
 const Card = (props) => {
 
-    const { game, setImageLoaded, imageLoaded } = props
+    const { game, setImageLoaded, imageLoaded, cardKey } = props
 
     const [infoVisible, setInfoVisible] = useState(false)
 
     function getESRB(esrb_rating) {
         if (esrb_rating === null) {
-            return <p>no information</p>
+            return <p className="esrb-rating">no information</p>
         } else {
-            return <p>{esrb_rating.name}</p>
+            return <p className="esrb-rating">{esrb_rating.name}</p>
         }
     }
 
@@ -33,13 +33,13 @@ const Card = (props) => {
     }
 
     return (
-        <div className="card-wrapper" onMouseEnter={hideInfo} style={{ display: 'inline-block', position: 'relative' }}>
+        <div className="card-wrapper" onMouseEnter={hideInfo} style={{ display: 'inline-block', position: 'relative' }} key={cardKey}>
             <div onMouseOver={handleInfoHover} onMouseOut={handleInfoHover} className="game-card-container" key={game.id}>
                 <img onLoad={() => setImageLoaded(true)} className="game-pic" src={game.background_image} style={imageLoaded ? {} : { display: 'none' }} />
                 <div className="text-container">
                     <div className="game-platform-container">
                         {game.parent_platforms.map(platformData => (
-                            <div className="platform-img-container">
+                            <div className="platform-img-container" key={uniqid()}>
                                 {getIcon(platformData.platform.name)}
                             </div>
                         ))}
@@ -60,13 +60,13 @@ const Card = (props) => {
                         <p className="genre-text">Genres: </p>
                         <div className="genre-name-container">
                             {game.genres.map(genre => (
-                                <p className="genre-name">{genre.name}</p>
+                                <p key={uniqid()} className="genre-name">{genre.name}</p>
                             ))}
                         </div>
                     </div>
                     <div className="esrb-container">
                         <p className="esrb-text">ESRB rating: </p>
-                        <p className="esrb-rating">{getESRB(game.esrb_rating)}</p>
+                        {getESRB(game.esrb_rating)}
                     </div>
                     <div className="show-more-container">
                         <div className="text-wrapper">

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectDataGames, selectDataStatus, setPage, selectPage } from './gamesSlice'
+import uniqid from 'uniqid';
 import Card from './Card'
 
 export default function GameCard() {
@@ -14,14 +15,11 @@ export default function GameCard() {
     const [imageLoaded, setImageLoaded] = useState(false)
 
     function handleLoadData() {
-        console.log('Game data status: ' + dataStatus)
         if (dataStatus === 'loading') {
             return <p style={{ color: 'white' }}>Loading...</p>
         } else if (dataStatus === 'success') {
-            console.log('Game data loaded')
-            console.log(gamesData)
             return gamesData.results.map(game => (
-                <Card game={game} setImageLoaded={setImageLoaded} imageLoaded={imageLoaded} />
+                <Card game={game} setImageLoaded={setImageLoaded} imageLoaded={imageLoaded} key={game.id} cardKey={uniqid.process()}/>
             ))
         } else if (dataStatus === 'failed') {
             return <p style={{ color: 'white' }}>Data loading failed</p>

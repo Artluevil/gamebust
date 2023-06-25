@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { searchGames, setSearch, setStartSearch, setData } from './searchSlice'
 import { selectDataSearch, selectDataStatus, selectDataSearchWord, selectStartSearch } from './searchSlice'
 import SearchResults from './SearchResults'
+import uniqid from 'uniqid';
 
 export default function SearchEngine() {
 
@@ -22,16 +23,14 @@ export default function SearchEngine() {
 
     function handleLoadSearches() {
         if (searchStatus === 'loading') {
-            console.log('Searches Loading')
             return <p>Loading...</p>
         } else if (searchStatus === 'success') {
             if(startSearch){
                 return searchData.results.map(search => (
-                    <SearchResults searchData={search} />
+                    <SearchResults searchData={search} key={uniqid()}/>
                 ))
             }
         } else if (searchStatus === 'failed') {
-            console.log('Searches Failed')
             return <p>Data loading failed</p>
         }
     }
@@ -40,7 +39,7 @@ export default function SearchEngine() {
         dispatch(setStartSearch(false))
         dispatch(setSearch(""))
     }
-
+    //
     return (
         <div className="search-engine-container">
             <div>

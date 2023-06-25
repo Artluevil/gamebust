@@ -14,8 +14,6 @@ const initialState = {
 }
 
 export const getGames = createAsyncThunk('games/getGames', (arg, {getState}) => {
-    //console.log(getState().games.page)
-    console.log('fetch fired')
     if(getState().games.LastMonthResults) {
         return fetch('https://api.rawg.io/api/games?key=3dd9328ac4df40a89ea737d2070e850f&' + new URLSearchParams({
             page: getState().games.page,

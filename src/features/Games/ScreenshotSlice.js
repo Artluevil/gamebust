@@ -9,8 +9,6 @@ const initialState = {
 }
 
 export const getScreenshots = createAsyncThunk('screenshots/getScreenshots', (arg, {getState}) => {
-    //console.log(getState().games.page)
-    console.log('fetch fired - screenshots')
     return fetch('https://api.rawg.io/api/games/'+ getState().screenshots.currentGame + '/screenshots?key=3dd9328ac4df40a89ea737d2070e850f')
     .then((res) =>
         res.json()
@@ -30,17 +28,6 @@ const screenshotsSlice = createSlice({
             state.screenshotsStatus = 'loading'
         },
         [getScreenshots.fulfilled]: (state, { payload }) => {
-            // if(state.page !== 1) {
-            //     const nextState = produce(state.gameData.results, draftState => {
-            //         draftState.push(...payload.results)
-            //     })
-            //     state.gameData.results = nextState
-            //     state.status = 'success'
-            // } else {
-            //     state.gameData = payload
-            //     state.status = 'success'
-            // }
-            console.log(state.screenshotsData)
             state.screenshotsData = payload
             state.screenshotsStatus = 'success'
         },

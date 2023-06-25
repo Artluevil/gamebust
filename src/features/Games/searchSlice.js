@@ -9,7 +9,6 @@ const initialState = {
 }
 
 export const searchGames = createAsyncThunk('games/searchGames', (arg, {getState}) => {
-    console.log(getState().search.search)
     return fetch('https://api.rawg.io/api/games?key=3dd9328ac4df40a89ea737d2070e850f&' + new URLSearchParams({
         search: getState().search.search,
         page_size: '10',
@@ -24,7 +23,6 @@ const searchSlice = createSlice({
     reducers: {
         setSearch: (state, action) => {
             state.search = action.payload
-            console.log('Search input' + state.search)
         },
         setStartSearch: (state, action) => {
             state.searchStart = action.payload
@@ -39,7 +37,6 @@ const searchSlice = createSlice({
         },
         [searchGames.fulfilled]: (state, { payload }) => {
             state.searchData = payload
-            console.log(state.searchData)
             state.searchStatus = 'success'
         },
         [searchGames.rejected]: (state, action) => {

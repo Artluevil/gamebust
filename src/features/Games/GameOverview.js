@@ -8,6 +8,7 @@ import axios from 'axios'
 import { nanoid } from 'nanoid'
 import { useParams } from 'react-router'
 import { setCurrentGame } from './ScreenshotSlice'
+import uniqid from 'uniqid';
 
 function GameOverview() {
 
@@ -48,7 +49,6 @@ function GameOverview() {
                     }
                 })
                 .then(function (response) {
-                    console.log(gameData)
                     setGameData(response.data.results[0])
                     setGameDataPlatforms(response.data.results[0].parent_platforms)
 
@@ -60,7 +60,6 @@ function GameOverview() {
                     }
                 })
                 .then( function (response){
-                    console.log(response.data)
                     setGameDataMore(response.data)
                     setGamePlatformsOther(response.data.platforms)
                     setGameDataGenres(response.data.genres)
@@ -69,7 +68,6 @@ function GameOverview() {
                     setGameDataStores(response.data.stores)
                     setShortDescription(response.data.description_raw.substring(0, 500) + '...')
                     response.data.platforms.map(platformData => {
-                        console.log(platformData.platform.name)
                         if(platformData.platform.name === "PC") {
                             setGameReq(platformData.requirements)
                         }
@@ -82,7 +80,6 @@ function GameOverview() {
                 }
             })
             .then( function (response){
-                console.log( response.data)
                 setGameDataMovies(response.data)
             })
             axios.get('https://api.rawg.io/api/games/' + gameData.id + '/screenshots', {
@@ -96,7 +93,7 @@ function GameOverview() {
             })
         }
         getGameData()
-    }, [gameData.id])
+    }, [gameData.id, gameName])
 
     dispatch(setCurrentGame(gameData.slug))
     return (
@@ -119,7 +116,7 @@ function GameOverview() {
                                     </div>
                                 ))} */}
                                 {gameDataPlatforms.map(platformData => (
-                                    <div>
+                                    <div key={uniqid()}>
                                         {getIcon(platformData.platform.name)}
                                     </div>
                                 ))}

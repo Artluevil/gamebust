@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import getStoreButton from './functions/getStoreButton'
 import GamePlaceholder from '../../images/game-placeholder.png'
 import { Link, Route } from 'react-router-dom'
-import ScreenshotsPage from './ScreenshotsPage'
+import uniqid from 'uniqid';
 
 export default function GameOverviewRight(props) {
 
@@ -31,7 +31,7 @@ export default function GameOverviewRight(props) {
             </div>
             <div className="other-screenshot-container">
                 {gameDataScreenshots.results.slice(1, 4).map(screenshotData => (
-                    <div>
+                    <div key={uniqid()}>
                         <img className="other-screenshot" src={screenshotData.image}/>
                     </div>
                 ))}
